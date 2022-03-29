@@ -101,6 +101,8 @@ const { loading, run, runAsync } = useRequest(service, {
 
 `useRequest` 提供了 `cancel` 函数，可以取消当前正在进行的请求。同时 `useRequest` 会在以下时机自动取消当前请求：
 
+`cancel` 并不能帮助用户取消http请求，需自行使用 `AbortController` [等方式](https://github.com/umijs/umi-request/blob/master/README_zh-CN.md#%E9%80%9A%E8%BF%87-abortcontroller-%E6%9D%A5%E4%B8%AD%E6%AD%A2%E8%AF%B7%E6%B1%82)实现
+ 
 * 组件卸载时，取消正在进行的请求
 * 竞态取消，当上一次请求还没返回时，又发起了下一次请求，则会取消上一次请求
 
